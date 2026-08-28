@@ -7,3 +7,4 @@ const SUPABASE_URL="COLOQUE_SUA_URL_AQUI",SUPABASE_ANON_KEY="COLOQUE_SUA_ANON_KE
 const db=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 async function responder(vai){const nome=prompt("Digite seu nome:");if(!nome||!nome.trim())return;document.querySelectorAll(".btn").forEach(b=>b.disabled=true);const {error}=await db.from("rsvps").insert({nome:nome.trim(),resposta:vai?"Vai":"Não vai"});const m=document.getElementById("msg");m.textContent=error?"Não foi possível registrar. Tente novamente.":"Resposta registrada! Obrigado, "+nome.trim()+" ❤️";m.className="msg "+(error?"err":"ok");m.style.display="block";if(error)document.querySelectorAll(".btn").forEach(b=>b.disabled=false)}
 </script></body></html>
+<!-- Atualização para publicar no GitHub Pages -->
