@@ -1,10 +1,175 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meu Aniversário 🎂</title>
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffe4ec,#f7d9ff);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;color:#29232d}.card{width:min(450px,100%);background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 20px 60px #0002;text-align:center}.hero{height:280px;background:linear-gradient(160deg,#c77dff,#ff8fab);display:flex;align-items:center;justify-content:center}.photo{width:170px;height:170px;border-radius:50%;border:6px solid #fff;background:#eee;display:flex;align-items:center;justify-content:center;font-size:64px;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:none}.content{padding:28px}.eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:3px;color:#9a5aa5;font-weight:bold}.content h1{font-size:32px;margin:8px 0}.content p{line-height:1.6;color:#665d69}.info{background:#faf5fc;border-radius:18px;padding:15px;margin:20px 0;text-align:left}.info div{padding:7px 0}.buttons{display:grid;gap:12px}.btn{border:0;border-radius:14px;padding:16px;font-size:16px;font-weight:bold;cursor:pointer}.yes{background:#41c98a;color:#fff}.no{background:#f17b8b;color:#fff}.btn:disabled{opacity:.6}.msg{margin-top:15px;padding:12px;border-radius:12px;display:none}.ok{background:#e8fff3;color:#18734b}.err{background:#fff0f2;color:#a93445}small{display:block;margin-top:18px;color:#aaa}
-</style></head><body><div class="card"><div class="hero"><div class="photo">🎂</div></div><div class="content"><div class="eyebrow">Você está convidado!</div><h1>Meu Aniversário 🎉</h1><p>Quero comemorar esse dia especial ao lado de pessoas importantes para mim. Espero você!</p><div class="info"><div>📅 <b>Data:</b> 12 de setembro de 2026</div><div>🕐 <b>Horário:</b> 19:30</div><div>📍 <b>Local:</b> Espaço da Festa</div></div><p><b>Você vai?</b></p><div class="buttons"><button class="btn yes" onclick="responder(true)">🟢 Eu vou!</button><button class="btn no" onclick="responder(false)">🔴 Não vou conseguir</button></div><div id="msg" class="msg"></div><small>Obrigado por responder! ❤️</small></div></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
-const SUPABASE_URL="https://bcmocgrjyyaxfpoibxel.supabase.co",SUPABASE_ANON_KEY="sb_publishable_ZuZ4JT9EBXpA6HbEGs8iSQ_RvcBwiTT";
-const db=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-async function responder(vai){const nome=prompt("Digite seu nome:");if(!nome||!nome.trim())return;document.querySelectorAll(".btn").forEach(b=>b.disabled=true);const {error}=await db.from("rsvps").insert({nome:nome.trim(),resposta:vai?"Vai":"Não vai"});const m=document.getElementById("msg");m.textContent=error?"Não foi possível registrar. Tente novamente.":"Resposta registrada! Obrigado, "+nome.trim()+" ❤️";m.className="msg "+(error?"err":"ok");m.style.display="block";if(error)document.querySelectorAll(".btn").forEach(b=>b.disabled=false)}
-</script></body></html>
-<!-- Atualização para publicar no GitHub Pages -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Convite - 50 Anos Wallace 🎂</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            color: #29232d;
+        }
+        .card {
+            width: min(450px, 100%);
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        /* Banner com a imagem inteira e sem cortes */
+        .invitation-image {
+            width: 100%;
+            display: block;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .content {
+            padding: 24px 20px;
+        }
+        .eyebrow {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #b8860b;
+            font-weight: bold;
+        }
+        .content h1 {
+            font-size: 26px;
+            margin: 8px 0;
+            color: #121212;
+        }
+        .content p {
+            line-height: 1.5;
+            color: #555;
+            font-size: 14px;
+        }
+        .info {
+            background: #faf7f0;
+            border-left: 4px solid #d4af37;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .info div {
+            padding: 6px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .buttons {
+            display: grid;
+            gap: 12px;
+        }
+        .btn {
+            border: 0;
+            border-radius: 14px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .yes {
+            background: #41c98a;
+            color: #fff;
+        }
+        .no {
+            background: #f17b8b;
+            color: #fff;
+        }
+        .btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+        .msg {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 12px;
+            display: none;
+        }
+        .ok {
+            background: #e8fff3;
+            color: #18734b;
+        }
+        .err {
+            background: #fff0f2;
+            color: #a93445;
+        }
+        small {
+            display: block;
+            margin-top: 18px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Imagem completa do convite -->
+        <img class="invitation-image" src="fundo_convite.jpg" alt="Convite 50 Anos Wallace">
+
+        <div class="content">
+            <div class="eyebrow">Confirmação de Presença</div>
+            <h1>50 Anos Wallace 🎉</h1>
+            <p>Meus 50 anos, com grandes amigos, boa música e muita alegria! E essa história a gente comemora junto!</p>
+            
+            <div class="info">
+                <div>📅 <b>Data:</b> 17 de Outubro de 2026</div>
+                <div>🕐 <b>Horário:</b> A partir das 13:00hs até às 21:00hs</div>
+                <div>📍 <b>Local:</b> REPIQUE GASTRODRINK</div>
+                <div>🏠 <b>Endereço:</b> Av. Dante Michelini, 2400 - Quiosque 07 - Mata da Praia, Vitória - ES</div>
+                <div>🎵 <b>Atrações:</b> Breno & Bernardo | Franzō</div>
+            </div>
+
+            <p><b>Você vai?</b></p>
+            <div class="buttons">
+                <button class="btn yes" onclick="responder(true)">🟢 Eu vou!</button>
+                <button class="btn no" onclick="responder(false)">🔴 Não vou conseguir</button>
+            </div>
+            
+            <div id="msg" class="msg"></div>
+            <small>Obrigado por responder! ❤️</small>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = "https://bcmocgrjyyaxfpoibxel.supabase.co";
+        const SUPABASE_ANON_KEY = "sb_publishable_ZuZ4JT9EBXpA6HbEGs8iSQ_RvcBwiTT";
+        const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function responder(vai) {
+            const nome = prompt("Digite seu nome:");
+            if (!nome || !nome.trim()) return;
+            
+            document.querySelectorAll(".btn").forEach(b => b.disabled = true);
+            
+            const { error } = await db.from("rsvps").insert({
+                nome: nome.trim(),
+                resposta: vai ? "Vai" : "Não vai"
+            });
+            
+            const m = document.getElementById("msg");
+            m.textContent = error ? "Não foi possível registrar. Tente novamente." : "Resposta registrada! Obrigado, " + nome.trim() + " ❤️";
+            m.className = "msg " + (error ? "err" : "ok");
+            m.style.display = "block";
+            
+            if (error) document.querySelectorAll(".btn").forEach(b => b.disabled = false);
+        }
+    </script>
+</body>
+</html>
